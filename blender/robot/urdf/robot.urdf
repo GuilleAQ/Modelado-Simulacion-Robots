@@ -1,0 +1,75 @@
+<robot name="robot" version="1.0">
+  <joint name="Cone_link_joint" type="fixed">
+    <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.12479 -0.00000"/>
+    <parent link="Sphere_link"/>
+    <child link="Cone_link"/>
+  </joint>
+  <joint name="Sphere_link_joint" type="fixed">
+    <origin rpy="0.26180 0.00000 0.00000" xyz="0.00000 -0.01047 -0.41352"/>
+    <parent link="Cylinder_link"/>
+    <child link="Sphere_link"/>
+  </joint>
+  <joint name="wheel_link_joint" type="continuous">
+    <limit lower="0" upper="0" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.10000"/>
+    <parent link="Cone_link"/>
+    <child link="wheel_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <link name="Cone_link">
+    <collision name="Cone_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <mesh filename="../meshes/dae/Cone.001.dae" scale="0.10000 0.10000 0.10000"/>
+      </geometry>
+    </collision>
+    <visual name="Cone">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <mesh filename="../meshes/dae/Cone.001.dae" scale="0.10000 0.10000 0.10000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Cylinder_link">
+    <collision name="Cylinder_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.05000" length="0.75000"/>
+      </geometry>
+    </collision>
+    <visual name="Cylinder">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.05000" length="0.75000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Sphere_link">
+    <collision name="Sphere_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <sphere radius="0.10000"/>
+      </geometry>
+    </collision>
+    <visual name="Sphere">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <sphere radius="0.10000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="wheel_link">
+    <collision name="wheel_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <mesh filename="../meshes/dae/Torus.dae" scale="0.20000 0.20000 0.50000"/>
+      </geometry>
+    </collision>
+    <visual name="wheel">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <mesh filename="../meshes/dae/Torus.dae" scale="0.20000 0.20000 0.50000"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
