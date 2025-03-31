@@ -1,47 +1,81 @@
 <?xml version="1.0"?>
 <robot name="ramp">
 
+
+    <!-- El siguiente link suelo, lo he usado para modelar el urdf con la 
+    extension de urdf visualizer de vscode. Lo dejo comentado porque de lo
+    contrario, daría error (no pertenece a un joint habiendo 3 links y 2 joints)
+    pero no lo elimino porque podría ser útil de cara a modificar la rampa
+    en posibles escenarios futuros -->
+    <!-- <link name="suelo">
+
+        <inertial>
+            <origin xyz="0 0 -0.75"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 -0.75"/>
+            <geometry>
+                <box size="10 3 0"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 0.8 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 -0.75"/>
+            <geometry>
+                <box size="10 3 0"/>
+            </geometry>
+        </collision>
+
+    </link> -->
+
+    <link name="body_link">
+
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="4 2 1.5"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 0.8 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="4 2 1.5"/>
+            </geometry>
+        </collision>
+
+    </link>
+
     <link name="up_link">
 
         <inertial>
-            <origin rpy="0 3.1415/4 0" xyz="8 0 0.1" />
-            <!-- <origin xyz="8 0 0"/> -->
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="10.0"/>
             <inertia ixx="1.0" ixy="0.0" ixz="0.0"
                 iyy="1.0" iyz="0.0" izz="1.0"/>
         </inertial>
 
         <visual>
-            <origin rpy="0 3.1415/4 0" xyz="8 0 0.1" />
-            <!-- <origin xyz="8 0 0"/> -->
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="3 2 0.02"/>
-            </geometry>
-        </visual>
-
-        <collision>
-            <origin rpy="0 3.1415/4 0" xyz="8 0 0.1" />
-            <!-- <origin xyz="8 0 0"/> -->
-            <geometry>
-                <box size="3 2 0.02"/>
-            </geometry>
-        </collision>
-
-    </link>
-
-    <link name="body_link">
-
-        <inertial>
-            <origin xyz="10 0 0"/>
-            <mass value="1.0"/>
-            <inertia ixx="1.0" ixy="0.0" ixz="0.0"
-                iyy="1.0" iyz="0.0" izz="1.0"/>
-        </inertial>
-
-        <visual>
-            <origin xyz="10 0 0"/>
-            <geometry>
-                <box size="4 2 1.5"/>
+                <box size="3.35 2 0.02"/>
             </geometry>
             <material name="blue">
                 <color rgba="0 0 0.8 1"/>
@@ -49,27 +83,27 @@
         </visual>
 
         <collision>
-            <origin xyz="10 0 0"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="4 2 1.5"/>
+                <box size="3.35 2 0.02"/>
             </geometry>
         </collision>
 
     </link>
 
-    <!-- <link name="down_link">
+    <link name="down_link">
 
         <inertial>
-            <origin xyz="0.1 0 1"/>
-            <mass value="1.0"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <mass value="10.0"/>
             <inertia ixx="1.0" ixy="0.0" ixz="0.0"
                 iyy="1.0" iyz="0.0" izz="1.0"/>
         </inertial>
 
         <visual>
-            <origin xyz="0.1 0 1"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="0.4 0.2 0.2"/>
+                <box size="3.35 2 0.02"/>
             </geometry>
             <material name="blue">
                 <color rgba="0 0 0.8 1"/>
@@ -77,32 +111,30 @@
         </visual>
 
         <collision>
-            <origin xyz="0.1 0 1"/>
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <box size="0.4 0.2 0.2"/>
+                <box size="3.35 2 0.02"/>
             </geometry>
         </collision>
 
-    </link> -->
+    </link>
 
     <joint name="up_to_body" type="fixed">
         <parent link="body_link"/>
         <child link="up_link"/>
         <dynamics damping="0.0" friction="0.0001"/>
 
-        <origin rpy="0 45 0" xyz="0 0 0" />
-        <!-- <origin xyz="0 1 0" rpy="0 0 0"/>  -->
-        <!-- <origin xyz="0.1 0 0.1"/> -->
+        <origin xyz="-3.5 0 0" rpy="0 -0.46 0"/>
         <axis xyz="0 0 0"/>
     </joint>
 
-    <!-- <joint name="body_to_down" type="fixed">
+    <joint name="body_to_down" type="fixed">
         <parent link="body_link"/>
         <child link="down_link"/>
         <dynamics damping="0.0" friction="0.0001"/>
 
-        <origin xyz="0.05 0 0.1"/>
-        <axis xyz="0 0 0.1"/>
-    </joint> -->
+        <origin rpy="0 0.46 0" xyz="3.5 0 0" />
+        <axis xyz="0 0 0"/>
+    </joint>
 
 </robot>
