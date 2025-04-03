@@ -317,9 +317,9 @@
   </link>
   <link name="chasis_link">
     <collision name="chasis_collision">
-      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00632"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.09507 0.16631"/>
       <geometry>
-        <mesh filename="../meshes/dae/Cube.004.dae" scale="1.50000 1.00000 0.05000"/>
+        <mesh filename="../meshes/dae/Cube.004.dae" scale="1.62500 1.00000 0.30000"/>
       </geometry>
     </collision>
     <inertial>
@@ -328,9 +328,9 @@
       <mass value="5.00000"/>
     </inertial>
     <visual name="chasis">
-      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00632"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.10089 0.16631"/>
       <geometry>
-        <box size="3.00000 2.00000 0.10000"/>
+        <box size="3.25000 2.00000 0.60000"/>
       </geometry>
     </visual>
   </link>
