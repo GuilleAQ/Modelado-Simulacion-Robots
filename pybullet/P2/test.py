@@ -15,7 +15,7 @@ startOrientation = p.getQuaternionFromEuler(euler_angles)
 
 robotId = p.loadURDF("robot/urdf/robot.urdf",startPos, startOrientation) 
 
-cube_id = p.loadURDF("objects/cube.urdf", [0, 0, 3.5], startOrientation)
+cube_id = p.loadURDF("objects/cube.urdf", [0, -0.5, 1.5], startOrientation)
 
 
 numJoints = p.getNumJoints(robotId)
@@ -52,10 +52,10 @@ back_finger_joint = 32
 
 wheel_links_vel = p.addUserDebugParameter(" wheel_links_vel", -10, 10, 0)
 
-q1_pose = p.addUserDebugParameter(" q1_pose", -3.14, 3.14, 0)
-q2_pose = p.addUserDebugParameter(" q2_pose", -4.34, 1.2, 0)
+q1_pose = p.addUserDebugParameter(" q1_pose", -3.14, 3.14, -1.1)
+q2_pose = p.addUserDebugParameter(" q2_pose", -4.34, 1.2, 0.6)
 q3_pose = p.addUserDebugParameter(" q3_pose", -3.14, 3.14, 0)
-q4_pose = p.addUserDebugParameter(" q4_pose", -1.2, 1.3, 0)
+q4_pose = p.addUserDebugParameter(" q4_pose", -1.2, 1.3, 0.3)
 
 finger_slider = p.addUserDebugParameter(" finger_open_close", 0, 0.06, 0)
 
@@ -88,6 +88,9 @@ while True:
     p.setJointMotorControl2(robotId, q2_joint, p.POSITION_CONTROL, targetPosition=q2p)
     p.setJointMotorControl2(robotId, q3_joint, p.POSITION_CONTROL, targetPosition=q3p)
     p.setJointMotorControl2(robotId, q4_joint, p.POSITION_CONTROL, targetPosition=q4p)
+    # p.setJointMotorControl2(robotId, 27, p.POSITION_CONTROL, targetPosition=0, force=10, maxVelocity=0.5)
+    # p.setJointMotorControl2(robotId, 26, p.POSITION_CONTROL, targetPosition=0.3, force=10, maxVelocity=0.5)
+    
     p.setJointMotorControl2(robotId, left_finger_joint, p.POSITION_CONTROL, targetPosition=finger_pos)
     p.setJointMotorControl2(robotId, right_finger_joint, p.POSITION_CONTROL, targetPosition=-finger_pos)
     p.setJointMotorControl2(robotId, front_finger_joint, p.POSITION_CONTROL, targetPosition=finger_pos)
