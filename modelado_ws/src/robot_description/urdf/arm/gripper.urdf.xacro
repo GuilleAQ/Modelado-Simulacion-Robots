@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
+ <joint name="back_finger_link_joint" type="prismatic">
+    <limit lower="0.06000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 1.57080" xyz="0.32481 -0.00033 -0.24871"/>
+    <parent link="hand_cube_link"/>
+    <child link="back_finger_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="front_finger_link_joint" type="prismatic">
+    <limit lower="0.06000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 1.57080" xyz="-0.32415 -0.00033 -0.24741"/>
+    <parent link="hand_cube_link"/>
+    <child link="front_finger_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="hand_cube_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.07303"/>
+    <parent link="hand_cylinder_link"/>
+    <child link="hand_cube_link"/>
+  </joint>
+  <joint name="hand_cylinder_link_joint" type="revolute">
+    <limit lower="-3.14000" upper="3.14000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -2.67343"/>
+    <parent link="arm_cilynder_2_link"/>
+    <child link="hand_cylinder_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="left_finger_link_joint" type="prismatic">
+    <limit lower="0.06000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00429 -0.32443 -0.19256"/>
+    <parent link="hand_cube_link"/>
+    <child link="left_finger_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="right_finger_link_joint" type="prismatic">
+    <limit lower="0.06000" upper="0.00000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00429 0.32378 -0.19256"/>
+    <parent link="hand_cube_link"/>
+    <child link="right_finger_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <link name="back_finger_link">
+    <collision name="back_finger_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00142" ixy="0.00000" ixz="0.00000" iyy="0.00135" iyz="0.00000" izz="0.00010"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <mass value="0.10000"/>
+    </inertial>
+    <visual name="back_finger">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="front_finger_link">
+    <collision name="front_finger_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00142" ixy="0.00000" ixz="0.00000" iyy="0.00135" iyz="0.00000" izz="0.00010"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <mass value="0.10000"/>
+    </inertial>
+    <visual name="front_finger">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="hand_cube_link">
+    <collision name="hand_cube_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <box size="0.70000 0.70000 0.10000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.01042" ixy="0.00000" ixz="0.00000" iyy="0.00151" iyz="0.00000" izz="0.01151"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <mass value="0.25000"/>
+    </inertial>
+    <visual name="hand_cube">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <box size="0.70000 0.70000 0.10000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="hand_cylinder_link">
+    <collision name="hand_cylinder_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.10000" length="0.10000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00033" ixy="0.00000" ixz="0.00000" iyy="0.00033" iyz="0.00000" izz="0.00050"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <mass value="0.10000"/>
+    </inertial>
+    <visual name="hand_cylinder">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.10000" length="0.10000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="left_finger_link">
+    <collision name="left_finger_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.05744"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00077" ixy="0.00000" ixz="0.00000" iyy="0.00083" iyz="0.00000" izz="0.00010"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <mass value="0.10000"/>
+    </inertial>
+    <visual name="left_finger">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.05744"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="right_finger_link">
+    <collision name="right_finger_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.05744"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00077" ixy="0.00000" ixz="0.00000" iyy="0.00083" iyz="0.00000" izz="0.00010"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <mass value="0.10000"/>
+    </inertial>
+    <visual name="right_finger">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.05744"/>
+      <geometry>
+        <box size="0.10000 0.05000 0.40000"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

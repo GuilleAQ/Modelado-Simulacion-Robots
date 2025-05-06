@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
+  <joint name="arm_cilynder_1_link_joint" type="revolute">
+    <limit lower="-3.14000" upper="3.14000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.76594"/>
+    <parent link="base_arm_cube_link"/>
+    <child link="arm_cilynder_1_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="arm_cilynder_2_link_joint" type="prismatic">
+    <limit lower="-1.20000" upper="1.30000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 1.05000"/>
+    <parent link="cylinder_jnt_2_link"/>
+    <child link="arm_cilynder_2_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="arm_cube_1_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.60749 0.00000 0.58880"/>
+    <parent link="arm_cilynder_1_link"/>
+    <child link="arm_cube_1_link"/>
+  </joint>
+  <joint name="arm_cube_2_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 1.57080" xyz="-0.01161 -0.70550 0.00000"/>
+    <parent link="cylinder_jnt_1_link"/>
+    <child link="arm_cube_2_link"/>
+  </joint>
+  <joint name="base_arm_cube_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-1.25000 -0.10000 0.48960"/>
+    <parent link="chasis_link"/>
+    <child link="base_arm_cube_link"/>
+  </joint>
+  <joint name="cylinder_jnt_1_link_joint" type="revolute">
+    <limit lower="-4.34000" upper="1.20000" effort="0.00000" velocity="0.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.68724 0.00000 0.50820"/>
+    <parent link="arm_cube_1_link"/>
+    <child link="cylinder_jnt_1_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="cylinder_jnt_2_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.70726 -0.01063 0.00000"/>
+    <parent link="arm_cube_2_link"/>
+    <child link="cylinder_jnt_2_link"/>
+  </joint>
+  <link name="arm_cilynder_1_link">
+    <collision name="arm_cilynder_1_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.22080"/>
+      <geometry>
+        <cylinder radius="0.07500" length="2.00000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.28336" ixy="0.00000" ixz="0.00000" iyy="0.28336" iyz="0.00000" izz="0.00422"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <mass value="1.50000"/>
+    </inertial>
+    <visual name="arm_cilynder_1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.22080"/>
+      <geometry>
+        <cylinder radius="0.07500" length="2.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="arm_cilynder_2_link">
+    <collision name="arm_cilynder_2_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -1.14646"/>
+      <geometry>
+        <cylinder radius="0.05000" length="3.00000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="1.12594" ixy="0.00000" ixz="0.00000" iyy="1.12594" iyz="0.00000" izz="0.00188"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <mass value="1.50000"/>
+    </inertial>
+    <visual name="arm_cilynder_2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -1.14646"/>
+      <geometry>
+        <cylinder radius="0.05000" length="3.00000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="arm_cube_1_link">
+    <collision name="arm_cube_1_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.50820"/>
+      <geometry>
+        <box size="1.50000 0.15000 0.15000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00563" ixy="0.00000" ixz="0.00000" iyy="0.28406" iyz="0.00000" izz="0.28406"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <mass value="1.50000"/>
+    </inertial>
+    <visual name="arm_cube_1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.50820"/>
+      <geometry>
+        <box size="1.50000 0.15000 0.15000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="arm_cube_2_link">
+    <collision name="arm_cube_2_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="1.50000 0.15000 0.15000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.28406" ixy="0.00000" ixz="0.00000" iyy="0.00563" iyz="0.00000" izz="0.28406"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <mass value="1.50000"/>
+    </inertial>
+    <visual name="arm_cube_2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="1.50000 0.15000 0.15000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="base_arm_cube_link">
+    <collision name="base_arm_cube_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+      <geometry>
+        <box size="0.50000 0.50000 0.05000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.01052" ixy="0.00000" ixz="0.00000" iyy="0.01052" iyz="0.00000" izz="0.02083"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+      <mass value="0.50000"/>
+    </inertial>
+    <visual name="base_arm_cube">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+      <geometry>
+        <box size="0.50000 0.50000 0.05000"/>
+      </geometry>
+    </visual>
+  </link>  
+  <link name="cylinder_jnt_1_link">
+    <collision name="cylinder_jnt_1_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.10000" length="0.30000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00250" ixy="0.00000" ixz="0.00000" iyy="0.00250" iyz="0.00000" izz="0.00125"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <mass value="0.25000"/>
+    </inertial>
+    <visual name="cylinder_jnt_1">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.10000" length="0.30000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="cylinder_jnt_2_link">
+    <collision name="cylinder_jnt_2_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.10000" length="0.30000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00250" ixy="0.00000" ixz="0.00000" iyy="0.00250" iyz="0.00000" izz="0.00125"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <mass value="0.25000"/>
+    </inertial>
+    <visual name="cylinder_jnt_2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <cylinder radius="0.10000" length="0.30000"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

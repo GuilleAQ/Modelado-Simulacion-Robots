@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot name="wheel" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- <xacro:include filename="$(find robot_description)/urdf/utils/utils.urdf.xacro"/> -->
+  <!--  ######## UTILS ########  -->
+  <xacro:macro name="solid_cuboid_inertia" params="m w h d">
+    <inertia ixx="${(m*(h*h+d*d))/12}" ixy="0" ixz="0" iyy="${(m*(w*w+d*d))/12}" iyz="0" izz="${(m*(w*w+h*h))/12}"/>
+  </xacro:macro>
+
+  <!-- WHEEL XACRO -->
+  <xacro:macro name="rover_wheel" params="prefix parent *origin">
+
+    <!-- TIRE -->
+    <joint name="${prefix}wheel_joint" type="continuous">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}wheel_link"/>
+      <axis xyz="0 0 1" rpy="0 0 0"/>
+      <limit effort="5000" velocity="100"/>
+      <dynamics damping="0.05" friction="0.1"/>
+    </joint>
+
+    <link name="${prefix}wheel_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="10.0"/>
+        <inertia ixx="0.02975" ixy="0" ixz="0" iyy="0.03087" iyz="0" izz="0.00191"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find robot_description)/meshes/dae/cylinder_010.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="0.3" radius="0.3"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <fdir1>0.0 0.0 1.0</fdir1>
+              <slip1>0.5</slip1>
+              <slip2>0.5</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <!-- Transmission is important to link the joints and the controller -->
+    <transmission name="${prefix}wheel_joint_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}wheel_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}wheel_joint_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_link">
+      <mu1>5</mu1>
+      <mu2>5</mu2>
+      <kp>2.75e6</kp>
+      <kd>8.25e4</kd>
+      <fdir1>0 0 1</fdir1>
+      <maxContacts>4</maxContacts>
+    </gazebo>
+
+  </xacro:macro>
+</robot>

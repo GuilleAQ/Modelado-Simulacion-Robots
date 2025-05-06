@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+<robot name="robot_base" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- Propiedades -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+  <xacro:property name="chasis_scale" value="1.625 1.0 0.3"/>
+
+  <!-- Macro para el robot_base -->
+  <xacro:macro name="robot_base" params="prefix">
+    <!-- Enlace del chasis -->
+    <link name="${prefix}chasis_link">
+      <collision name="${prefix}chasis_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.09507 0.16631"/>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/dae/Cube.004.dae" scale="${chasis_scale}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="109.00000" ixy="0.00000" ixz="0.00000" iyy="273.06250" iyz="0.00000" izz="364.06250"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.10089 0.16631"/>
+        <mass value="300.00000"/>
+      </inertial>
+      <visual name="${prefix}chasis">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.10089 0.16631"/>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/dae/Cube.004.dae" scale="${chasis_scale}"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+
+</robot>

@@ -1,0 +1,75 @@
+[0.013s] Invoking command in '/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/src/robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description
+[0.056s] -- The C compiler identification is GNU 13.3.0
+[0.097s] -- The CXX compiler identification is GNU 13.3.0
+[0.110s] -- Detecting C compiler ABI info
+[0.179s] -- Detecting C compiler ABI info - done
+[0.187s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.187s] -- Detecting C compile features
+[0.187s] -- Detecting C compile features - done
+[0.194s] -- Detecting CXX compiler ABI info
+[0.272s] -- Detecting CXX compiler ABI info - done
+[0.280s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.280s] -- Detecting CXX compile features
+[0.281s] -- Detecting CXX compile features - done
+[0.286s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.440s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.513s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.591s] -- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.678s] -- Configuring done (0.7s)
+[0.680s] -- Generating done (0.0s)
+[0.681s] -- Build files have been written to: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description
+[0.685s] Invoked command in '/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/src/robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description
+[0.685s] Invoking command in '/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description -- -j12 -l12
+[0.720s] Invoked command in '/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description -- -j12 -l12
+[0.728s] Invoking command in '/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description
+[0.735s] -- Install configuration: ""
+[0.736s] -- Execute custom install script
+[0.736s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/launch/robot_gazebo.launch.py
+[0.744s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/launch/robot_state_publisher.launch.py
+[0.752s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Cone.001.dae
+[0.759s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Cone.002.dae
+[0.766s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Cone.003.dae
+[0.774s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Cone.007.dae
+[0.781s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Cube.004.dae
+[0.788s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Torus.001.dae
+[0.795s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Torus.002.dae
+[0.804s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Torus.006.dae
+[0.812s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/Torus.dae
+[0.820s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/Cube.000.dae
+[0.827s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/Cylinder.dae
+[0.835s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/base.dae
+[0.842s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/base_gripper.dae
+[0.850s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/eslabon.dae
+[0.858s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/eslabon_vertical.dae
+[0.865s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/meshes/dae/otros/finger.dae
+[0.873s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/arm/gripper.urdf.xacro
+[0.880s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/arm/scara.urdf.xacro
+[0.887s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/base/robot_base.urdf.xacro
+[0.895s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/robot.urdf
+[0.902s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/ros2_control.urdf.xacro
+[0.911s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/sensors/camera.urdf.xacro
+[0.918s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/sensors/imu_sensor.urdf.xacro
+[0.927s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/sensors/sensors.urdf.xacro
+[0.935s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/utils/utils.urdf.xacro
+[0.942s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/urdf/wheels/rover_wheel.urdf.xacro
+[0.950s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/rviz/robot.rviz
+[0.957s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/config/config.yaml
+[0.965s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/config/robot_bridge.yaml
+[0.972s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/config/robot_controllers.yaml
+[0.979s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/robots/robot.urdf.xacro
+[0.987s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description
+[0.994s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/ament_index/resource_index/parent_prefix_path/robot_description
+[1.002s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.sh
+[1.010s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.dsv
+[1.018s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/environment/path.sh
+[1.026s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/environment/path.dsv
+[1.033s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/local_setup.bash
+[1.040s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/local_setup.sh
+[1.048s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/local_setup.zsh
+[1.055s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/local_setup.dsv
+[1.063s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/package.dsv
+[1.072s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
+[1.079s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig.cmake
+[1.087s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig-version.cmake
+[1.094s] -- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/robot_description/share/robot_description/package.xml
+[1.104s] Invoked command in '/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description
