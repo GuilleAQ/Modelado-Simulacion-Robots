@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot_base">
+  <xacro:macro name="robot_base" params="prefix parent *origin">
+
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+  </joint>
+
+
+
+  <joint name="wheel_front_left_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="Cylinder_link"/>
+    <origin xyz="0 1.5 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="wheel_front_right_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="Cylinder_link"/>
+    <origin xyz="0 3 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="wheel_back_left_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="Cylinder_link"/>
+    <origin xyz="2.5 1.5 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="wheel_back_right_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="Cylinder_link"/>
+    <origin xyz="2.5 3 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <!-- Joint entre cilindro y chasis -->
+  <joint name="${prefix}cylinder_joint" type="fixed">
+    <origin rpy="-0.26180 0 0" xyz="-1.25 -0.65807 -0.39906"/>
+    <parent link="${parent}"/>
+    <child link="${prefix}Cylinder_link"/>
+  </joint>
+
+  <!-- Joint entre cilindro y esfera -->
+  <joint name="${prefix}sphere_joint" type="fixed">
+    <origin rpy="0.26180 0 0" xyz="0.0 -0.01047 -0.41352"/>
+    <parent link="${prefix}Cylinder_link"/>
+    <child link="${prefix}Sphere_link"/>
+  </joint>
+
+  <!-- Joint entre esfera y cono -->
+  <joint name="${prefix}cone_joint" type="fixed">
+    <origin rpy="1.5708 0 0" xyz="0.0 -0.12479 0.0"/>
+    <parent link="${prefix}Sphere_link"/>
+    <child link="${prefix}Cone_link"/>
+  </joint>
+
+    <!-- LINK: Cone -->
+    <link name="${prefix}Cone_link">
+      <collision name="Cone_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.001.dae" scale="0.1 0.1 0.1"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.3"/>
+        <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+        <inertia ixx="0.00148" ixy="0.0" ixz="0.0"
+                 iyy="0.00089" iyz="0.0" izz="0.00148"/>
+      </inertial>
+      <visual name="Cone">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.001.dae" scale="0.1 0.1 0.1"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- LINK: Cylinder -->
+    <link name="${prefix}Cylinder_link">
+      <collision name="Cylinder_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.05" length="0.75"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.8"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.038" ixy="0.0" ixz="0.0"
+                 iyy="0.03552" iyz="-0.00925" izz="0.00348"/>
+      </inertial>
+      <visual name="Cylinder">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.05" length="0.75"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- LINK: Sphere -->
+    <link name="${prefix}Sphere_link">
+      <collision name="Sphere_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <sphere radius="0.1"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.3"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.0012" ixy="0.0" ixz="0.0"
+                 iyy="0.0012" iyz="0.0" izz="0.0012"/>
+      </inertial>
+      <visual name="Sphere">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <sphere radius="0.1"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+
+
+  <joint name="Cube_trailer_2_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.35456 0.85200 0.70968"/>
+    <parent link="chasis_link"/>
+    <child link="Cube_trailer_2_link"/>
+  </joint>
+  <joint name="Cube_trailer_3_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 1.57080" xyz="1.57008 -0.09844 0.70917"/>
+    <parent link="chasis_link"/>
+    <child link="Cube_trailer_3_link"/>
+  </joint>
+  <joint name="Cube_trailer_4_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 1.57080" xyz="-0.85539 -0.09844 0.70917"/>
+    <parent link="chasis_link"/>
+    <child link="Cube_trailer_4_link"/>
+  </joint>
+  <joint name="Cube_trailer_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.35456 -1.04857 0.70968"/>
+    <parent link="chasis_link"/>
+    <child link="Cube_trailer_link"/>
+  </joint>
+
+  <joint name="${prefix}base_link" type="fixed">
+    <xacro:insert_block name="origin"/>
+    <parent link="${parent}"/>
+    <child link="${prefix}chasis_link"/>
+  </joint>
+
+  <link name="Cube_trailer_2_link">
+    <collision name="Cube_trailer_2_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.50000 0.10000 0.50000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.65000" ixy="0.00000" ixz="0.00000" iyy="16.25000" iyz="0.00000" izz="15.65000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <mass value="30.00000"/>
+    </inertial>
+    <visual name="Cube_trailer_2">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <box size="2.50000 0.10000 0.50000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Cube_trailer_3_link">
+    <collision name="Cube_trailer_3_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+      <geometry>
+        <box size="2.00000 0.10000 0.50000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="7.08333" ixy="0.00000" ixz="0.00000" iyy="0.43333" iyz="0.00000" izz="6.68333"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <mass value="20.00000"/>
+    </inertial>
+    <visual name="Cube_trailer_3">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.00000 0.10000 0.50000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Cube_trailer_4_link">
+    <collision name="Cube_trailer_4_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.00000 0.10000 0.50000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="7.08333" ixy="0.00000" ixz="0.00000" iyy="0.43333" iyz="0.00000" izz="6.68333"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <mass value="20.00000"/>
+    </inertial>
+    <visual name="Cube_trailer_4">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.00000 0.10000 0.50000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Cube_trailer_link">
+    <collision name="Cube_trailer_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.50000 0.10000 0.50000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.65000" ixy="0.00000" ixz="0.00000" iyy="16.25000" iyz="0.00000" izz="15.65000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+      <mass value="30.00000"/>
+    </inertial>
+    <visual name="Cube_trailer">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+      <geometry>
+        <box size="2.50000 0.10000 0.50000"/>
+      </geometry>
+    </visual>
+  </link>
+
+  
+  <link name="chasis_link">
+    <collision name="chasis_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.09507 0.16631"/>
+      <geometry>
+        <mesh filename="../meshes/dae/Cube.004.dae" scale="1.62500 1.00000 0.30000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="109.00000" ixy="0.00000" ixz="0.00000" iyy="273.06250" iyz="0.00000" izz="364.06250"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.10089 0.16631"/>
+      <mass value="300.00000"/>
+    </inertial>
+    <visual name="chasis">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.10089 0.16631"/>
+      <geometry>
+        <box size="3.25000 2.00000 0.60000"/>
+      </geometry>
+    </visual>
+  </link>
+
+</xacro:macro>
+
+</robot>

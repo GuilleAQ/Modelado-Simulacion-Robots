@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="rover_wheel" params="prefix parent *origin">
+    <!-- Joint entre cono y rueda -->
+    <joint name="${prefix}wheel_joint" type="continuous">
+      <limit lower="0" upper="0" effort="0.0" velocity="0.0"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.1"/>
+      <parent link="${prefix}Cone_link"/>
+      <child link="${prefix}wheel_link"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- LINK: Wheel -->
+    <link name="${prefix}wheel_link">
+      <collision name="wheel_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.dae" scale="0.2 0.2 0.5"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="1.0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.01774" ixy="0.0" ixz="0.0"
+                 iyy="0.02932" iyz="0.0" izz="0.01774"/>
+      </inertial>
+      <visual name="wheel">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Torus.dae" scale="0.2 0.2 0.5"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+</robot>

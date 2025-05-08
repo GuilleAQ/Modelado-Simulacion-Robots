@@ -1,0 +1,68 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/rover_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/arm/gripper.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/arm/scara.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/base/robot_base.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/robot.urdf
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/ros2_control.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/sensors/camera.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/sensors/imu_sensor.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/sensors/sensors.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/utils/utils.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/urdf/wheels/rover_wheel.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Cone.001.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Cone.002.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Cone.003.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Cone.007.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Cube.004.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Torus.001.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Torus.002.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Torus.006.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/Torus.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/Cube.000.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/Cylinder.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/base.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/base_gripper.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/eslabon.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/eslabon_vertical.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/meshes/dae/otros/finger.dae
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/config/config.yaml
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/config/robot_bridge.yaml
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/config/robot_controllers.yaml
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/launch/robot_gazebo.launch.py
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/launch/robot_state_publisher.launch.py
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/rviz/robot.rviz
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/robots/robot.urdf.xacro
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/ament_index/resource_index/package_run_dependencies/rover_description
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/ament_index/resource_index/parent_prefix_path/rover_description
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/environment/path.sh
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/environment/path.dsv
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/local_setup.bash
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/local_setup.sh
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/local_setup.zsh
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/local_setup.dsv
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/package.dsv
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/ament_index/resource_index/packages/rover_description
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig.cmake
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig-version.cmake
+-- Symlinking: /home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/install/rover_description/share/rover_description/package.xml

@@ -1,0 +1,1 @@
+/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/src/rover_description/launch/robot_gazebo.launch.py
