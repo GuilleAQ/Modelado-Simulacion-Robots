@@ -12,14 +12,13 @@ def generate_launch_description():
     # Declare arguments
     description_file = LaunchConfiguration("description_file", default="robot.urdf.xacro")
     prefix = LaunchConfiguration("prefix", default="")
-    use_sim_time = LaunchConfiguration('use_sim_time' , default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
 
 
     robot_description_content = Command([
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            # PathJoinSubstitution([FindPackageShare("rover_description"), "config", description_file]),
-            PathJoinSubstitution([FindPackageShare("rover_description"), "robots", description_file]),
+            PathJoinSubstitution([FindPackageShare("rover_description"), "robots", "robot.urdf.xacro"]),
     ])
 
     robot_description_param = launch_ros.descriptions.ParameterValue(robot_description_content, value_type=str)
@@ -28,18 +27,30 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
-        #namespace=robot_id,
         output='screen',
         parameters=[{
           'use_sim_time': use_sim_time,
           'robot_description': robot_description_param,
-          'publish_frequency': 100.0,
-          'frame_prefix': prefix,
         }],
     )
 
-    nodes = [
-        robot_state_publisher_node,  
-    ]
+    joint_state_publisher_gui_node = Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui',
+        output='screen'
+    )
 
-    return LaunchDescription(nodes)
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', PathJoinSubstitution([FindPackageShare("rover_description"), "rviz", "robot.rviz"])]
+    )
+
+    return LaunchDescription([
+        robot_state_publisher_node,
+        joint_state_publisher_gui_node,
+        rviz_node
+    ])

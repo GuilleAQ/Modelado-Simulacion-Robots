@@ -1,1 +1,0 @@
-/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/src/robot_description/launch/robot_state_publisher.launch.py

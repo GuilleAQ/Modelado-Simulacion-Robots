@@ -1,1 +1,0 @@
-controller_manager:gz_ros2_control_demos:joint_state_publisher:joint_state_publisher_gui:joy:rclcpp:robot_state_publisher:rviz2:rviz_common:rviz_default_plugins:teleop_twist_joy:teleop_twist_keyboard:teleop_twist_mux:twist_stamper:xacro

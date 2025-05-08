@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<robot name="rover" xmlns:xacro="http://wiki.ros.org/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="rover_description">
 
   <!-- Includes -->
   <xacro:include filename="$(find rover_description)/urdf/base/robot_base.urdf.xacro"/>
   <xacro:include filename="$(find rover_description)/urdf/wheels/rover_wheel.urdf.xacro"/>
   <xacro:include filename="$(find rover_description)/urdf/arm/scara.urdf.xacro"/>
+  <xacro:include filename="$(find rover_description)/urdf/arm/gripper.urdf.xacro"/>
   <xacro:include filename="$(find rover_description)/urdf/sensors/camera.urdf.xacro"/>
   <xacro:include filename="$(find rover_description)/urdf/sensors/imu_sensor.urdf.xacro"/>
   <!-- <xacro:include filename="$(find rover_description)/urdf/sensors/3d_lidar.urdf.xacro"/>
@@ -25,35 +26,33 @@
 
   <!-- Robot Parts -->
   <!-- Base -->
-  <!-- <xacro:robot_base prefix="$(arg prefix)"/> -->
-  <xacro:macro name="robot_base"/>
-
-
+  <xacro:robot_base/>
 
   <!-- Wheels -->
-  <xacro:rover_wheel prefix="front_right_" parent="base_link">
+  <xacro:rover_wheel prefix="" parent="base_link">
     <origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${PI/2} 0 ${PI/2}"/>
   </xacro:rover_wheel>
 
-  <xacro:rover_wheel prefix="back_right_" parent="base_link">
+  <xacro:rover_wheel prefix="_w2" parent="base_link">
     <origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${PI/2} 0 ${PI/2}"/>
   </xacro:rover_wheel>
 
-  <xacro:rover_wheel prefix="front_left_" parent="base_link">
+  <xacro:rover_wheel prefix="_w3" parent="base_link">
     <origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${PI/2} 0 -${PI/2}"/>
   </xacro:rover_wheel>
 
-  <xacro:rover_wheel prefix="back_left_" parent="base_link">
+  <xacro:rover_wheel prefix="_w4" parent="base_link">
     <origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${PI/2} 0 -${PI/2}"/>
   </xacro:rover_wheel>
 
   <!-- Arm -->
-  <!-- <xacro:scara parent="base_link">
-    <origin xyz="${arm_offset_x} ${arm_offset_y} ${arm_offset_z}" rpy="0 0 ${PI/2}"/>
-  </xacro:scara> -->
+  <xacro:scara/>
+
+  <!-- Gripper -->
+  <xacro:gripper/>
 
   <!-- Sensores -->
-  <!-- <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)"
+  <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)"
                        frame_prefix="$(arg prefix)front_camera" parent="$(arg prefix)base_link">
     <origin xyz="0.0 0.132 0.6" rpy="0 0 ${PI/2}"/>
   </xacro:sensor_camera>
@@ -65,7 +64,7 @@
 
   <xacro:sensor_imu ns="$(arg robot_ns)" prefix="$(arg prefix)imu" parent="$(arg prefix)base_link">
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-  </xacro:sensor_imu> -->
+  </xacro:sensor_imu>
 
   <!-- <xacro:sensor_3d_lidar node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)front_laser" parent="$(arg prefix)base_link">
     <origin xyz="0.0 1.27 0.68" rpy="0 0 ${PI/2}"/>

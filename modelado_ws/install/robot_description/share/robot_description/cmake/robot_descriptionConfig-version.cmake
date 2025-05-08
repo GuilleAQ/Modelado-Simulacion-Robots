@@ -1,1 +1,0 @@
-/home/guilleaq/Modelado-Simulacion-Robots/modelado_ws/build/robot_description/ament_cmake_core/robot_descriptionConfig-version.cmake

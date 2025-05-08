@@ -1,162 +1,308 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot_base">
-  <xacro:macro name="robot_base" params="prefix parent *origin">
-
-  <link name="base_footprint"/>
-  <joint name="base_footprint_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0.05" rpy="0 0 0"/>
-  </joint>
-
-
-
-  <joint name="wheel_front_left_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="Cylinder_link"/>
-    <origin xyz="0 1.5 0" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-  <joint name="wheel_front_right_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="Cylinder_link"/>
-    <origin xyz="0 3 0" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-  <joint name="wheel_back_left_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="Cylinder_link"/>
-    <origin xyz="2.5 1.5 0" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-  <joint name="wheel_back_right_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="Cylinder_link"/>
-    <origin xyz="2.5 3 0" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="rover_description">
+  <xacro:macro name="robot_base" params="">
+  
+  <!-- ################## CHASIS RUEDAS ################## -->
   <!-- Joint entre cilindro y chasis -->
-  <joint name="${prefix}cylinder_joint" type="fixed">
-    <origin rpy="-0.26180 0 0" xyz="-1.25 -0.65807 -0.39906"/>
-    <parent link="${parent}"/>
-    <child link="${prefix}Cylinder_link"/>
-  </joint>
-
-  <!-- Joint entre cilindro y esfera -->
-  <joint name="${prefix}sphere_joint" type="fixed">
-    <origin rpy="0.26180 0 0" xyz="0.0 -0.01047 -0.41352"/>
-    <parent link="${prefix}Cylinder_link"/>
-    <child link="${prefix}Sphere_link"/>
-  </joint>
-
-  <!-- Joint entre esfera y cono -->
-  <joint name="${prefix}cone_joint" type="fixed">
-    <origin rpy="1.5708 0 0" xyz="0.0 -0.12479 0.0"/>
-    <parent link="${prefix}Sphere_link"/>
-    <child link="${prefix}Cone_link"/>
-  </joint>
-
     <!-- LINK: Cone -->
-    <link name="${prefix}Cone_link">
+    <link name="Cone_link">
       <collision name="Cone_collision">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
         <geometry>
-          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.001.dae" scale="0.1 0.1 0.1"/>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.001.dae" scale="0.10000 0.10000 0.10000"/>
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.3"/>
-        <origin xyz="0 0 -0.05" rpy="0 0 0"/>
-        <inertia ixx="0.00148" ixy="0.0" ixz="0.0"
-                 iyy="0.00089" iyz="0.0" izz="0.00148"/>
+        <inertia ixx="0.00148" ixy="0.00000" ixz="-0.00000" iyy="0.00089" iyz="-0.00000" izz="0.00148"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.05000"/>
+        <mass value="0.30000"/>
       </inertial>
       <visual name="Cone">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
         <geometry>
-          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.001.dae" scale="0.1 0.1 0.1"/>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.001.dae" scale="0.10000 0.10000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cone_w2_link">
+      <collision name="Cone_w2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.002.dae" scale="0.10000 0.10000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00148" ixy="0.00000" ixz="-0.00000" iyy="0.00089" iyz="-0.00000" izz="0.00148"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.05000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="Cone_w2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.002.dae" scale="0.10000 0.10000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cone_w3_link">
+      <collision name="Cone_w3_collision">
+        <origin rpy="0.00000 0.00000 -3.14159" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.003.dae" scale="0.10000 0.10000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00148" ixy="0.00000" ixz="0.00000" iyy="0.00089" iyz="0.00000" izz="0.00148"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.05000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="Cone_w3">
+        <origin rpy="-0.00000 0.00000 -0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.003.dae" scale="0.10000 0.10000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cone_w4_link">
+      <collision name="Cone_w4_collision">
+        <origin rpy="0.00000 0.00000 -3.14159" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.007.dae" scale="0.10000 0.10000 0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00148" ixy="0.00000" ixz="0.00000" iyy="0.00089" iyz="0.00000" izz="0.00148"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.05000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="Cone_w4">
+        <origin rpy="-0.00000 0.00000 -0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="file://$(find rover_description)/meshes/dae/Cone.007.dae" scale="0.10000 0.10000 0.10000"/>
         </geometry>
       </visual>
     </link>
 
     <!-- LINK: Cylinder -->
-    <link name="${prefix}Cylinder_link">
+    <link name="Cylinder_link">
       <collision name="Cylinder_collision">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
         <geometry>
-          <cylinder radius="0.05" length="0.75"/>
+          <cylinder radius="0.05000" length="0.75000"/>
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.8"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="0.038" ixy="0.0" ixz="0.0"
-                 iyy="0.03552" iyz="-0.00925" izz="0.00348"/>
+        <inertia ixx="0.03800" ixy="0.00000" ixz="0.00000" iyy="0.03552" iyz="-0.00925" izz="0.00348"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="0.80000"/>
       </inertial>
       <visual name="Cylinder">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
         <geometry>
-          <cylinder radius="0.05" length="0.75"/>
+          <cylinder radius="0.05000" length="0.75000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cylinder_w2_link">
+      <collision name="Cylinder_w2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="0.75000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.03800" ixy="0.00000" ixz="0.00000" iyy="0.03552" iyz="-0.00925" izz="0.00348"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="0.80000"/>
+      </inertial>
+      <visual name="Cylinder_w2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="0.75000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cylinder_w3_link">
+      <collision name="Cylinder_w3_collision">
+        <origin rpy="-0.00000 -0.00000 3.14159" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="0.75000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.03800" ixy="0.00000" ixz="-0.00000" iyy="0.03552" iyz="0.00925" izz="0.00348"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="0.80000"/>
+      </inertial>
+      <visual name="Cylinder_w3">
+        <origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="0.75000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Cylinder_w4_link">
+      <collision name="Cylinder_w4_collision">
+        <origin rpy="-0.00000 -0.00000 3.14159" xyz="-0.00000 0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="0.75000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.03800" ixy="0.00000" ixz="-0.00000" iyy="0.03552" iyz="0.00925" izz="0.00348"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <mass value="0.80000"/>
+      </inertial>
+      <visual name="Cylinder_w4">
+        <origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <cylinder radius="0.05000" length="0.75000"/>
         </geometry>
       </visual>
     </link>
 
     <!-- LINK: Sphere -->
-    <link name="${prefix}Sphere_link">
+    <link name="Sphere_link">
       <collision name="Sphere_collision">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
         <geometry>
-          <sphere radius="0.1"/>
+          <sphere radius="0.10000"/>
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.3"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="0.0012" ixy="0.0" ixz="0.0"
-                 iyy="0.0012" iyz="0.0" izz="0.0012"/>
+        <inertia ixx="0.00120" ixy="0.00000" ixz="0.00000" iyy="0.00120" iyz="0.00000" izz="0.00120"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.30000"/>
       </inertial>
       <visual name="Sphere">
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
         <geometry>
-          <sphere radius="0.1"/>
+          <sphere radius="0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Sphere_w2_link">
+      <collision name="Sphere_w2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <sphere radius="0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00120" ixy="0.00000" ixz="0.00000" iyy="0.00120" iyz="0.00000" izz="0.00120"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="Sphere_w2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <sphere radius="0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Sphere_w3_link">
+      <collision name="Sphere_w3_collision">
+        <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <sphere radius="0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00120" ixy="0.00000" ixz="0.00000" iyy="0.00120" iyz="-0.00000" izz="0.00120"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="Sphere_w3">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <sphere radius="0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="Sphere_w4_link">
+      <collision name="Sphere_w4_collision">
+        <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <sphere radius="0.10000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00120" ixy="0.00000" ixz="0.00000" iyy="0.00120" iyz="-0.00000" izz="0.00120"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <mass value="0.30000"/>
+      </inertial>
+      <visual name="Sphere_w4">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <geometry>
+          <sphere radius="0.10000"/>
         </geometry>
       </visual>
     </link>
 
+    <joint name="Cylinder_link_joint" type="fixed">
+      <origin rpy="-0.26180 0.00000 0.00000" xyz="-1.25000 -0.65807 -0.39906"/>
+      <parent link="base_link"/>
+      <child link="Cylinder_link"/>
+    </joint>
+    <joint name="Cylinder_w2_link_joint" type="fixed">
+      <origin rpy="-0.26180 0.00000 0.00000" xyz="1.25000 -0.65807 -0.39860"/>
+      <parent link="base_link"/>
+      <child link="Cylinder_w2_link"/>
+    </joint>
+    <joint name="Cylinder_w3_link_joint" type="fixed">
+      <origin rpy="-0.26180 -0.00000 -3.14159" xyz="-1.25000 0.47479 -0.40695"/>
+      <parent link="base_link"/>
+      <child link="Cylinder_w3_link"/>
+    </joint>
+    <joint name="Cylinder_w4_link_joint" type="fixed">
+      <origin rpy="-0.26180 -0.00000 -3.14159" xyz="1.25000 0.47479 -0.40719"/>
+      <parent link="base_link"/>
+      <child link="Cylinder_w4_link"/>
+    </joint>
+    <joint name="Sphere_link_joint" type="fixed">
+      <origin rpy="0.26180 0.00000 0.00000" xyz="0.00000 -0.01047 -0.41352"/>
+      <parent link="Cylinder_link"/>
+      <child link="Sphere_link"/>
+    </joint>
+    <joint name="Sphere_w2_link_joint" type="fixed">
+      <origin rpy="0.26180 0.00000 0.00000" xyz="0.00000 -0.01047 -0.41352"/>
+      <parent link="Cylinder_w2_link"/>
+      <child link="Sphere_w2_link"/>
+    </joint>
+    <joint name="Sphere_w3_link_joint" type="fixed">
+      <origin rpy="0.26180 0.00000 0.00000" xyz="-0.00000 -0.01267 -0.40736"/>
+      <parent link="Cylinder_w3_link"/>
+      <child link="Sphere_w3_link"/>
+    </joint>
+    <joint name="Sphere_w4_link_joint" type="fixed">
+      <origin rpy="0.26180 0.00000 0.00000" xyz="-0.00000 -0.01267 -0.40736"/>
+      <parent link="Cylinder_w4_link"/>
+      <child link="Sphere_w4_link"/>
+    </joint>
+  
+    <joint name="Cone_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.12479 0.00000"/>
+      <parent link="Sphere_link"/>
+      <child link="Cone_link"/>
+    </joint>
+    <joint name="Cone_w2_link_joint" type="fixed">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="-0.00000 -0.12479 -0.00000"/>
+      <parent link="Sphere_w2_link"/>
+      <child link="Cone_w2_link"/>
+    </joint>
+    <joint name="Cone_w3_link_joint" type="fixed">
+      <origin rpy="1.57080 -0.00000 -0.00000" xyz="-0.00000 -0.12479 0.00000"/>
+      <parent link="Sphere_w3_link"/>
+      <child link="Cone_w3_link"/>
+    </joint>
+    <joint name="Cone_w4_link_joint" type="fixed">
+      <origin rpy="1.57080 -0.00000 -0.00000" xyz="0.00000 -0.12479 -0.00000"/>
+      <parent link="Sphere_w4_link"/>
+      <child link="Cone_w4_link"/>
+    </joint>
+  <!-- ################## CHASIS RUEDAS ################## -->
 
-
-
-  <joint name="Cube_trailer_2_link_joint" type="fixed">
-    <origin rpy="0.00000 0.00000 0.00000" xyz="0.35456 0.85200 0.70968"/>
-    <parent link="chasis_link"/>
-    <child link="Cube_trailer_2_link"/>
-  </joint>
-  <joint name="Cube_trailer_3_link_joint" type="fixed">
-    <origin rpy="0.00000 0.00000 1.57080" xyz="1.57008 -0.09844 0.70917"/>
-    <parent link="chasis_link"/>
-    <child link="Cube_trailer_3_link"/>
-  </joint>
-  <joint name="Cube_trailer_4_link_joint" type="fixed">
-    <origin rpy="0.00000 0.00000 1.57080" xyz="-0.85539 -0.09844 0.70917"/>
-    <parent link="chasis_link"/>
-    <child link="Cube_trailer_4_link"/>
-  </joint>
-  <joint name="Cube_trailer_link_joint" type="fixed">
-    <origin rpy="0.00000 0.00000 0.00000" xyz="0.35456 -1.04857 0.70968"/>
-    <parent link="chasis_link"/>
-    <child link="Cube_trailer_link"/>
-  </joint>
-
-  <joint name="${prefix}base_link" type="fixed">
-    <xacro:insert_block name="origin"/>
-    <parent link="${parent}"/>
-    <child link="${prefix}chasis_link"/>
-  </joint>
-
+  
+  <!-- ################## CHASIS TRAILER ################## -->
   <link name="Cube_trailer_2_link">
     <collision name="Cube_trailer_2_collision">
       <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
@@ -234,12 +380,46 @@
     </visual>
   </link>
 
+  <joint name="Cube_trailer_2_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.35456 0.85200 0.70968"/>
+    <parent link="base_link"/>
+    <child link="Cube_trailer_2_link"/>
+  </joint>
+  <joint name="Cube_trailer_3_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 1.57080" xyz="1.57008 -0.09844 0.70917"/>
+    <parent link="base_link"/>
+    <child link="Cube_trailer_3_link"/>
+  </joint>
+  <joint name="Cube_trailer_4_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 1.57080" xyz="-0.85539 -0.09844 0.70917"/>
+    <parent link="base_link"/>
+    <child link="Cube_trailer_4_link"/>
+  </joint>
+  <joint name="Cube_trailer_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.35456 -1.04857 0.70968"/>
+    <parent link="base_link"/>
+    <child link="Cube_trailer_link"/>
+  </joint>
+  <!-- ################## CHASIS TRAILER ################## -->
+
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 3.1415"/>
+  </joint>
+
+  <joint name="base_arm_cube_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-1.25000 -0.10000 0.48960"/>
+    <parent link="base_link"/>
+    <child link="base_arm_cube_link"/>
+  </joint>
   
-  <link name="chasis_link">
+  <link name="base_link">
     <collision name="chasis_collision">
       <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.09507 0.16631"/>
       <geometry>
-        <mesh filename="../meshes/dae/Cube.004.dae" scale="1.62500 1.00000 0.30000"/>
+        <mesh filename="file://$(find rover_description)/meshes/dae/Cube.004.dae" scale="1.62500 1.00000 0.30000"/>
       </geometry>
     </collision>
     <inertial>
