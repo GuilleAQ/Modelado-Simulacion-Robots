@@ -52,7 +52,7 @@
   <xacro:gripper/>
 
   <!-- Sensores -->
-  <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)"
+  <!-- <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)"
                        frame_prefix="$(arg prefix)front_camera" parent="$(arg prefix)base_link">
     <origin xyz="0.0 0.132 0.6" rpy="0 0 ${PI/2}"/>
   </xacro:sensor_camera>
@@ -60,7 +60,16 @@
   <xacro:sensor_camera node_name="arm_camera" node_namespace="$(arg robot_ns)"
                        frame_prefix="$(arg prefix)arm_camera" parent="$(arg prefix)base_link">
     <origin xyz="0.0 0.0 0.6" rpy="0 0 ${PI/2}"/>
+  </xacro:sensor_camera> -->
+
+  <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)front_camera" parent="$(arg prefix)base_footprint">
+    <origin xyz="0.0 0.132 0.6" rpy="0 0 ${PI/2}"/>
   </xacro:sensor_camera>
+
+  <xacro:sensor_camera node_name="arm_camera" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)arm_camera" parent="$(arg prefix)base_footprint">
+    <origin xyz="0.0 0.0 0.6" rpy="0 0 ${PI/2}"/>
+  </xacro:sensor_camera>
+
 
   <xacro:sensor_imu ns="$(arg robot_ns)" prefix="$(arg prefix)imu" parent="$(arg prefix)base_link">
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>

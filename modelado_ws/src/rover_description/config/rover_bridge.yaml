@@ -14,4 +14,10 @@
   direction: GZ_TO_ROS
   lazy: false
 
-# TBD: add IMU and other sensors that you might use. Do not add any camera msgs here.
+# replace IMU 
+- ros_topic_name: "imu/data"
+  gz_topic_name: "/imu/data"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+  lazy: false

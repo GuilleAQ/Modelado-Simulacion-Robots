@@ -71,40 +71,41 @@
 
     <link name="${frame_prefix}_camera_optical_frame"/>
 
-    <gazebo reference="${frame_prefix}_camera_frame">
-      <sensor name="${frame_prefix}_sensor" type="camera">
-        <visualize>true</visualize>
-        <update_rate>30</update_rate>
-        <topic>${frame_prefix}/image</topic>
-        <camera>
-          <horizontal_fov>${radians(float(horizontal_fov))}</horizontal_fov>
-          <image>
-            <width>${video_width}</width>
-            <height>${video_height}</height>
-            <format>R8G8B8</format>
-          </image>
-          <clip>
-            <near>0.10</near>
-            <far>15.0</far>
-          </clip>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.007</stddev>
-          </noise>
-        </camera>
+  <gazebo reference="${frame_prefix}_camera_frame">
+    <sensor name="${frame_prefix}_sensor" type="camera">
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <topic>/${frame_prefix}/image</topic>
+      <camera>
+        <horizontal_fov>${radians(float(horizontal_fov))}</horizontal_fov>
+        <image>
+          <width>${video_width}</width>
+          <height>${video_height}</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.10</near>
+          <far>15.0</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
         <optical_frame_id>${frame_prefix}_camera_frame</optical_frame_id>
-      </sensor>
-    </gazebo>
+      </camera>
+    </sensor>
+  </gazebo>
 
   </xacro:macro>
 
-  <xacro:macro name="sensor_camera" params="frame_prefix
-                                            parent
-                                            *origin
-                                            node_namespace:=cameras
-                                            node_name
-                                            topic_prefix:=/">
+  <xacro:macro name="sensor_camera" 
+          params="frame_prefix
+                      parent
+                      *origin
+                      node_namespace:=cameras
+                      node_name
+                      topic_prefix:=/">
 
     <xacro:sensor_camera_generic frame_prefix="${frame_prefix}"
                                  parent="${parent}"

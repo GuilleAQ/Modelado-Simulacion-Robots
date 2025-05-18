@@ -1,0 +1,42 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    scara_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+scara_controller:
+  ros__parameters:
+    joints:
+      - arm_cilynder_1_link_joint
+      - cylinder_jnt_1_link_joint
+      - arm_cilynder_2_link_joint
+      - hand_cylinder_link_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+gripper_controller:
+  ros__parameters:
+    joints:
+      - back_finger_link_joint
+      - front_finger_link_joint
+      - left_finger_link_joint
+      - right_finger_link_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true

@@ -1,0 +1,11 @@
+# Default initial positions for rover_description's ros2_control fake system
+
+initial_positions:
+  arm_cilynder_1_link_joint: 0
+  arm_cilynder_2_link_joint: 0
+  back_finger_link_joint: 0
+  cylinder_jnt_1_link_joint: 0
+  front_finger_link_joint: 0
+  hand_cylinder_link_joint: 0
+  left_finger_link_joint: 0
+  right_finger_link_joint: 0
